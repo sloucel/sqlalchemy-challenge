@@ -8,7 +8,8 @@ Module 10: Advanced SQL
 3. Sat, Jun 8th @1:56PM - Identified dates, filtered, created df, and removed NaNs
 4. Sat, Jun 8th @2:51PM - Completed Matplot Bar Chart
 5. Sat, Jun 8th @3:05PM - Finished Exploratory Precipitation Analysis
+6. Sat, Jun 8th @4:44PM - Finished Exploratory Station Analysis
 
 # Resources
 1. To 'reflect an existing database' I used 10-Advnaced-SQL > 2 > Activities > 05-Reflection
-2. To selec date range I used 10-Advance-SQL > 3 > Activities > 02_Ins_Date 
+2. To select date range I used 10-Advance-SQL > 3 > Activities > 02_Ins_Date 
