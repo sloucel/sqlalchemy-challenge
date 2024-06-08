@@ -5,7 +5,8 @@ Module 10: Advanced SQL
 # Timeline
 1. Tuesday, June 4th @7:25AM - Created repo in Github and added starter folders and files.
 2. Saturday, June 8th @12:11PM - Created engine, reflected the tables, created Classes, and a Session.
-3. Saturdday, Jun3 8th@1:56PM - Identified last day, 365 days back, filtered by date and prcp, created a dataframe, and removed NaNs
+3. Saturdday, Jun3 8th @1:56PM - Identified last day, 365 days back, filtered by date and prcp, created a dataframe, and removed NaNs
+4.  Saturday, June 8th @2:51PM - Completed Matplot Bar Chart
 
 
 # Resources
