@@ -10,7 +10,7 @@ Module 10: Advanced SQL
 6. Sat, Jun 8th @4:44PM - Finished Exploratory Station Analysis
 7. Sun, Jun 9th @6:45PM - Completed /api/v1.0/precipitation path with 12 month filter
 8. Sun, Jun 9th @7:14PM - Completed /api/v1.0/station path
-9. Sun, Jun 9th @8:59PM - Completed /api/v1.0/<start> and <end> path
+9. Sun, Jun 9th @9:07PM - Completed /api/v1.0/start date and end date path
 
 # Resources
 1. To 'reflect an existing database' I used 10-Advnaced-SQL > 2 > Activities > 05-Reflection
