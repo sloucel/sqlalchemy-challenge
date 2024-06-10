@@ -1,6 +1,12 @@
 # sqlalchemy-challenge
 Module 10: Advanced SQL
 
+# Assignment 
+Part 1: Analyze and Explore the Climate Data 
+    Analysis found in climate_starter.ipynb
+Part 2: Design Your Climate App 
+    API routes found in app.py
+
 # Timeline
 1. Tue, Jun 4th @7:25AM - Created repo in Github and added starter folders and files.
 2. Sat, Jun 8th @12:11PM - Created engine, reflected tables, classes, and a session.
@@ -16,4 +22,4 @@ Module 10: Advanced SQL
 # Resources
 1. To 'reflect an existing database' I used 10-Advnaced-SQL > 2 > Activities > 05-Reflection
 2. To select date range I used 10-Advance-SQL > 3 > Activities > 02_Ins_Date 
-3. For API section, used Day 3 Assign 6 and 10, xpert learning assistant, and chatgpt
+3. For API section, I used Day 3 Assignment 6 and 10, xpert learning assistant, and chatgpt
