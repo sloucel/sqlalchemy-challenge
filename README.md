@@ -15,4 +15,4 @@ Module 10: Advanced SQL
 # Resources
 1. To 'reflect an existing database' I used 10-Advnaced-SQL > 2 > Activities > 05-Reflection
 2. To select date range I used 10-Advance-SQL > 3 > Activities > 02_Ins_Date 
-3. For first section of API, used Day 3 Assign 6 and 10, xpert learning assistant, and chatgpt
+3. For API section, used Day 3 Assign 6 and 10, xpert learning assistant, and chatgpt
