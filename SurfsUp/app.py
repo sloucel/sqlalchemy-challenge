@@ -22,7 +22,7 @@ Base.prepare(autoload_with=engine)
 
 # Save references to each table
 Measurements = Base.classes.measurement
-Stations = Base.classes.station
+Station = Base.classes.station
 
 # Create our session (link) from Python to the DB
 session = Session(engine)
@@ -32,9 +32,11 @@ session = Session(engine)
 #################################################
 app = Flask(__name__)
 
-
 #################################################
 # Flask Routes
+#################################################
+
+# SECTION 1: Start at the homepage. List all the available routes.
 #################################################
 @app.route("/")
 def home():
@@ -46,6 +48,9 @@ def home():
         f"/api/v1.0/tobs<br/>"
     )
 
+# SECTION 2: Convert the query results from your precipitation analysis (i.e. retrieve only the last 12 months of data) to a dictionary using date as the key and prcp as the value. 
+# Return the JSON representation of your dictionary.
+#################################################
 @app.route("/api/v1.0/precipitation")
 def precipitation():
  # Create our session (link) from Python to the DB
@@ -73,8 +78,43 @@ def precipitation():
 
     return jsonify(all_precipitation)
 
-@app.route("/api/v1.0/precipitation")
+# SECTION 3: Return a JSON list of stations from the dataset.
+#################################################
+
+@app.route("/api/v1.0/stations")
 def stations():
+ # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+# List of stations in the table
+    results = session.query(Station.station, Station.name).all()
+       
+    session.close()
+
+# Convert the query results to a list of dictionaries
+    stations_data = []
+    for station, name in results:
+        station_data = {
+            "station": station,
+            "name": name
+        }
+        stations_data.append(station_data)
+
+    # Return a JSON response
+    return jsonify(stations_data)
+
+# SECTION 4 Query the dates and temperature observations of the most-active station for the previous year of data. 
+# Return a JSON list of temperature observations for the previous year.
+#################################################
+@app.route("/api/v1.0/tobs")
+def tobs():
+ # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+# Stations
+    results = session.query(Station.station, Station.name).all()
+       
+    session.close()
 
 
 if __name__ == '__main__':
