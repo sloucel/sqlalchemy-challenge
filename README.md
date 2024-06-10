@@ -2,10 +2,8 @@
 Module 10: Advanced SQL
 
 # Assignment 
-* Part 1: Analyze and Explore the Climate Data 
-    Analysis found in climate_starter.ipynb
-* Part 2: Design Your Climate App 
-    API routes found in app.py
+* Part 1: Analyze and Explore the Climate Data -- Analysis found in climate_starter.ipynb
+* Part 2: Design Your Climate App -- API routes found in app.py
 
 # Timeline
 1. Tue, Jun 4th @7:25AM - Created repo in Github and added starter folders and files.
