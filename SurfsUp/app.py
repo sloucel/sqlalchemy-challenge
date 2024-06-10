@@ -157,27 +157,31 @@ def temp_with_start(start):
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    # Start date format
+   # Start date formatting
     try:
         start_date = dt.datetime.strptime(start, '%Y-%m-%d')
     except ValueError:
         return jsonify({"error": "Invalid date format. Please use YYYY-MM-DD."}), 400
 
-    # Filter start date and get min, max, avg
-    results = session.query(
-        func.min(Measurements.tobs),
-        func.avg(Measurements.tobs),
-        func.max(Measurements.tobs)
-    ).filter(Measurements.date >= start_date).all()
+    # Check if start date exists in the table
+    start_date_exists = session.query(Measurements.date).filter(Measurements.date == start).first()
+    if not start_date_exists:
+        session.close()
+        return jsonify({"error": "Start date not found in the dataset. Select date between 2010-01-01 and 2017-08-23"}), 404
+
+    # Temp statistics from the start date onward
+    lowest_temp = session.query(func.min(Measurements.tobs)).\
+        filter(Measurements.date >= start).scalar()
+    avg_temp = session.query(func.avg(Measurements.tobs)).\
+        filter(Measurements.date >= start).scalar()
+    highest_temp = session.query(func.max(Measurements.tobs)).\
+        filter(Measurements.date >= start).scalar()
 
     session.close()
 
-    # Check for results
-    if not results or results[0][0] is None:
+    # Check results
+    if lowest_temp is None or avg_temp is None or highest_temp is None:
         return jsonify({"error": "No data found for the given start date."}), 404
-
-    # Pull results
-    lowest_temp, avg_temp, highest_temp = results[0]
 
     # Print
     print = {
@@ -220,21 +224,19 @@ def temp_with_start_end(start, end):
         session.close()
         return jsonify({"error": "End date not found in the dataset. Select date between 2010-01-01 and 2017-08-23"}), 404
 
-    # Define the query for temperature statistics from the start date to the end date
-    results = session.query(
-        func.min(Measurements.tobs),
-        func.avg(Measurements.tobs),
-        func.max(Measurements.tobs)
-    ).filter(Measurements.date >= start_date_str, Measurements.date <= end_date_str).all()
-
+    # Temp statistics from the start date to the end date
+    lowest_temp = session.query(func.min(Measurements.tobs)).\
+        filter(Measurements.date >= start_date_str, Measurements.date <= end_date_str).scalar()
+    avg_temp = session.query(func.avg(Measurements.tobs)).\
+        filter(Measurements.date >= start_date_str, Measurements.date <= end_date_str).scalar()
+    highest_temp = session.query(func.max(Measurements.tobs)).\
+        filter(Measurements.date >= start_date_str, Measurements.date <= end_date_str).scalar()
+    
     session.close()
 
     # Check results
-    if not results or results[0][0] is None:
+    if lowest_temp is None or avg_temp is None or highest_temp is None:
         return jsonify({"error": "No data found for the given date range. Select date between 2010-01-01 and 2017-08-23"}), 404
-
-    # Pull results
-    lowest_temp, avg_temp, highest_temp = results[0]
 
     # Prepare the response
     response = {
