@@ -9,6 +9,7 @@ Module 10: Advanced SQL
 4. Sat, Jun 8th @2:51PM - Completed Matplot Bar Chart
 5. Sat, Jun 8th @3:05PM - Finished Exploratory Precipitation Analysis
 6. Sat, Jun 8th @4:44PM - Finished Exploratory Station Analysis
+7. Sun, Jun 9th @6:45PM - Completed /api/v1.0/precipitation path with 12 month filter
 
 # Resources
 1. To 'reflect an existing database' I used 10-Advnaced-SQL > 2 > Activities > 05-Reflection
